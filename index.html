@@ -138,89 +138,58 @@
   </section>
 
   <div class="container">
-    <form id="carForm" method="POST">
+    <form id="carForm">
       <input type="hidden" id="haendler_id" name="haendler_id" />
 
       <label for="name">Dein Name<span class="pflicht">*</span></label>
-      <input type="text" id="name" name="Name" placeholder="Max Mustermann" required />
+      <input type="text" id="name" name="name" required />
 
       <label for="email">E-Mail-Adresse<span class="pflicht">*</span></label>
-      <input type="email" id="email" name="Email" placeholder="max@example.de" required />
+      <input type="email" id="email" name="email" required />
 
       <label for="marke">Fahrzeugmarke<span class="pflicht">*</span></label>
-      <input type="text" id="marke" name="Fahrzeugmarke" placeholder="z. B. Volkswagen" required />
+      <input type="text" id="marke" name="marke" required />
 
       <label for="modell">Fahrzeugmodell<span class="pflicht">*</span></label>
-      <input type="text" id="modell" name="Modell" placeholder="z. B. Golf 7 GTI" required />
+      <input type="text" id="modell" name="modell" required />
 
       <label for="baujahr">Baujahr<span class="pflicht">*</span></label>
-      <input type="text" id="baujahr" name="Baujahr" placeholder="z. B. 2018" required />
+      <input type="text" id="baujahr" name="baujahr" required />
 
       <label for="kilometer">Kilometerstand<span class="pflicht">*</span></label>
-      <input type="number" id="kilometer" name="Kilometerstand" placeholder="z. B. 58000" required />
+      <input type="number" id="kilometer" name="kilometerstand" required />
 
-      <label>Kraftstoffart<span class="pflicht">*</span></label>
-      <div class="grid">
-        <label>Benzin<input type="checkbox" name="Kraftstoff" value="Benzin"></label>
-        <label>Diesel<input type="checkbox" name="Kraftstoff" value="Diesel"></label>
-        <label>Elektro<input type="checkbox" name="Kraftstoff" value="Elektro"></label>
-        <label>Hybrid (Diesel/Elektro)<input type="checkbox" name="Kraftstoff" value="Hybrid-Diesel"></label>
-        <label>Hybrid (Benzin/Elektro)<input type="checkbox" name="Kraftstoff" value="Hybrid-Benzin"></label>
-        <label>Wasserstoff<input type="checkbox" name="Kraftstoff" value="Wasserstoff"></label>
-        <label>Erdgas (CNG)<input type="checkbox" name="Kraftstoff" value="Erdgas"></label>
-        <label>Autogas (LPG)<input type="checkbox" name="Kraftstoff" value="Autogas"></label>
-        <label>Plug-in-Hybrid<input type="checkbox" name="Kraftstoff" value="Plug-in-Hybrid"></label>
-        <label>Ethanol (E85)<input type="checkbox" name="Kraftstoff" value="Ethanol"></label>
-        <label>Andere<input type="checkbox" name="Kraftstoff" value="Andere"></label>
-      </div>
-
-      <label for="Fin/VIN">FIN/VIN (optional)</label>
-      <input type="text" id="fin" name="FIN/VIN" placeholder="Fahrzeug-Identifizierungsnummer" />
-
-      <label>Fahrzeugtyp<span class="pflicht">*</span></label>
-      <div class="grid">
-        <label>SUV<input type="checkbox" name="Fahrzeugtyp" value="SUV"></label>
-        <label>Kombi<input type="checkbox" name="Fahrzeugtyp" value="Kombi"></label>
-        <label>Limousine<input type="checkbox" name="Fahrzeugtyp" value="Limousine"></label>
-        <label>Cabrio<input type="checkbox" name="Fahrzeugtyp" value="Cabrio"></label>
-        <label>Kleinwagen<input type="checkbox" name="Fahrzeugtyp" value="Kleinwagen"></label>
-        <label>Sportwagen / Coupé<input type="checkbox" name="Fahrzeugtyp" value="Sportwagen"></label>
-        <label>Van / Minibus<input type="checkbox" name="Fahrzeugtyp" value="Van"></label>
-        <label>Andere<input type="checkbox" name="Fahrzeugtyp" value="Andere"></label>
-      </div>
-
-      <label for="zustand-select">Fahrzeugzustand<span class="pflicht">*</span></label>
-      <select id="zustand-select" name="Zustand" required>
+      <label for="zustand">Fahrzeugzustand<span class="pflicht">*</span></label>
+      <select id="zustand" name="zustand" required>
         <option value="">Bitte wählen</option>
         <option value="Hervorragend">Hervorragend</option>
         <option value="Gebrauchsspuren">Gebrauchsspuren</option>
-        <option value="Schäden">Fahrzeug mit eindeutigen Schäden</option>
+        <option value="Schäden">Fahrzeug mit Schäden</option>
       </select>
 
-      <label for="zustand">Details zum Zustand<span class="pflicht">*</span></label>
-      <textarea id="zustand" name="Zustand_Text" rows="3" placeholder="z. B. kleine Kratzer an der Tür, neuer Auspuff eingebaut" required></textarea>
+      <label for="zustand_text">Details zum Zustand<span class="pflicht">*</span></label>
+      <textarea id="zustand_text" name="zustand_text" required></textarea>
 
-      <label for="unfall">Fahrzeug hatte einen Unfall?<span class="pflicht">*</span></label>
-      <select id="unfall" name="Unfall" required>
+      <label for="unfall">Unfall?<span class="pflicht">*</span></label>
+      <select id="unfall" name="unfall" required>
         <option value="">Bitte wählen</option>
         <option value="Ja">Ja</option>
         <option value="Nein">Nein</option>
       </select>
 
       <label for="nachricht">Zusätzliche Nachricht<span class="pflicht">*</span></label>
-      <textarea id="nachricht" name="Nachricht" rows="4" placeholder="z. B. letzter TÜV, neue Reifen, zusätzliche Ausstattung" required></textarea>
+      <textarea id="nachricht" name="nachricht" required></textarea>
 
-      <label for="bilder">Fahrzeugbilder (mehrere möglich)<span class="pflicht">*</span></label>
-      <input type="file" id="fotos" name="fotos[]" accept="image/*" multiple required />
+      <label for="fotos">Fahrzeugbilder<span class="pflicht">*</span></label>
+      <input type="file" id="fotos" accept="image/*" multiple required />
       <div id="filePreview" class="file-preview"></div>
 
-      <label for="Wunschpreis">Wunschpreis (optional)</label>
-      <input type="number" id="wunschpreis" name="Wunschpreis" placeholder="z. B. 5800€" required />
-
+      <label for="wunschpreis">Wunschpreis (optional)</label>
+      <input type="number" id="wunschpreis" name="wunschpreis" />
 
       <label>
         <input type="checkbox" id="zustimmung" required />
-        Ich habe die <a href="#">Datenschutzerklärung</a> und <a href="#">AGB</a> gelesen und akzeptiert. <span class="pflicht">*</span>
+        Ich akzeptiere die AGB und Datenschutzerklärung.
       </label>
 
       <button type="submit">Jetzt Rückkaufanfrage senden</button>
@@ -229,83 +198,76 @@
   </div>
 
   <footer>
-    &copy; 2025 Carback2Cash – Fahrzeugverkauf mit Vertrauen
+    &copy; 2025 Carback2Cash
   </footer>
 
   <script>
-  const cloudName = "carback2cash"; // ← HIER deinen Cloudinary-Namen eintragen
-  const uploadPreset = "carback2cash"; // ← HIER deinen unsigned Upload-Preset eintragen
+    const cloudName = "carback2cash"; // ← dein Cloudinary-Name
+    const uploadPreset = "carback2cash"; // ← dein Upload-Preset
 
-  const bilderInput = document.getElementById("bilder");
-  const filePreview = document.getElementById("filePreview");
-  const form = document.getElementById("carForm");
-  const statusBox = document.getElementById("status");
+    const bilderInput = document.getElementById("fotos");
+    const filePreview = document.getElementById("filePreview");
+    const form = document.getElementById("carForm");
+    const statusBox = document.getElementById("status");
 
-  // 📁 Hochgeladene URLs speichern
-  let uploadedImageUrls = [];
+    let uploadedImageUrls = [];
 
-  bilderInput.addEventListener("change", async function () {
-    uploadedImageUrls = [];
-    filePreview.innerHTML = "Bilder werden hochgeladen...";
+    bilderInput.addEventListener("change", async function () {
+      uploadedImageUrls = [];
+      filePreview.innerHTML = "Bilder werden hochgeladen...";
 
-    const files = Array.from(bilderInput.files);
-    for (const file of files) {
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("upload_preset", uploadPreset);
+      const files = Array.from(bilderInput.files);
+      for (const file of files) {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", uploadPreset);
 
-      const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/upload`, {
-        method: "POST",
-        body: formData,
-      });
+        const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/upload`, {
+          method: "POST",
+          body: formData,
+        });
 
-      const data = await res.json();
-      if (data.secure_url) {
-        uploadedImageUrls.push(data.secure_url);
+        const data = await res.json();
+        if (data.secure_url) {
+          uploadedImageUrls.push(data.secure_url);
+        }
       }
-    }
 
-    // ✅ Vorschau anzeigen
-    filePreview.innerHTML = uploadedImageUrls.map(url => `📎 <a href="${url}" target="_blank">${url}</a>`).join("<br>");
-  });
+      filePreview.innerHTML = uploadedImageUrls.map(url => `📎 <a href="${url}" target="_blank">${url}</a>`).join("<br>");
+    });
 
-  // 📨 Formular absenden
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    // Händler-ID automatisch eintragen
-    const urlParams = new URLSearchParams(window.location.search);
-    const haendlerId = urlParams.get("händler_id");
-    if (haendlerId) {
-      document.getElementById("haendler_id").value = haendlerId;
-    }
-
-    const formData = new FormData(form);
-
-    // 📎 Cloudinary-Bild-URLs als JSON-String anhängen
-    formData.append("fotos", JSON.stringify(uploadedImageUrls));
-
-    statusBox.innerText = "Sende Anfrage...";
-
-    try {
-      const response = await fetch("https://devak.app.n8n.cloud/webhook/retoure-anfrage", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (response.ok) {
-        statusBox.innerText = "Anfrage erfolgreich gesendet!";
-        form.reset();
-        filePreview.innerHTML = "";
-        uploadedImageUrls = [];
-      } else {
-        statusBox.innerText = "Fehler beim Senden. Bitte erneut versuchen.";
+      const urlParams = new URLSearchParams(window.location.search);
+      const haendlerId = urlParams.get("händler_id");
+      if (haendlerId) {
+        document.getElementById("haendler_id").value = haendlerId;
       }
-    } catch (err) {
-      statusBox.innerText = "Netzwerkfehler. Bitte Verbindung prüfen.";
-    }
-  });
-</script>
 
+      const formData = new FormData(form);
+      formData.append("fotos", JSON.stringify(uploadedImageUrls));
+
+      statusBox.innerText = "Sende Anfrage...";
+
+      try {
+        const response = await fetch("https://devak.app.n8n.cloud/webhook/retoure-anfrage", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (response.ok) {
+          statusBox.innerText = "Anfrage erfolgreich gesendet!";
+          form.reset();
+          filePreview.innerHTML = "";
+          uploadedImageUrls = [];
+        } else {
+          statusBox.innerText = "Fehler beim Senden. Bitte erneut versuchen.";
+        }
+      } catch (err) {
+        statusBox.innerText = "Netzwerkfehler. Bitte Verbindung prüfen.";
+      }
+    });
+  </script>
 </body>
 </html>
