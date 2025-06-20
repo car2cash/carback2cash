@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carback2Cash – Schnell & Sicher verkaufen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #f2f4f7, #ffffff);
+      color: #1c1c1c;
+    }
+    header {
+      background-color: #0a74da;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+    .hero h1 {
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: #444;
+    }
+    .container {
+      background: white;
+      max-width: 700px;
+      margin: 20px auto;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 6px;
+      font-size: 15px;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #999;
+    }
+    input:focus, textarea:focus, select:focus {
+      border-color: #0a74da;
+      outline: none;
+    }
+    button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 14px;
+      background-color: #0a74da;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #065bb5;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .grid label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8f8f8;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      font-weight: 500;
+    }
+    .grid input[type="checkbox"] {
+      margin-left: 12px;
+    }
+    .pflicht {
+      color: red;
+      margin-left: 4px;
+    }
+    .file-preview {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px dashed #ccc;
+      background-color: #f9f9f9;
+      font-size: 14px;
+      color: #333;
+      max-height: 150px;
+      overflow-y: auto;
+      border-radius: 6px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">🚗 Carback2Cash</div>
+    <div>Vertraulich. Fair. Schnell.</div>
+  </header>
+
+  <section class="hero">
+    <h1>Fahrzeug verkaufen – ohne Stress</h1>
+    <p>Erhalte innerhalb von 24 Stunden ein faires Rückkaufangebot – direkt von Autohändlern.</p>
+  </section>
+
+  <div class="container">
+    <form id="carForm">
+      <input type="hidden" id="haendler_id" name="haendler_id" />
+
+      <label for="name">Dein Name<span class="pflicht">*</span></label>
+      <input type="text" id="name" name="name" placeholder="Max Mustermann" required />
+
+      <label for="email">E-Mail-Adresse<span class="pflicht">*</span></label>
+      <input type="email" id="email" name="email" placeholder="max@example.de" required />
+
+      <label for="marke">Fahrzeugmarke<span class="pflicht">*</span></label>
+      <input type="text" id="marke" name="marke" placeholder="z. B. Volkswagen" required />
+
+      <label for="modell">Fahrzeugmodell<span class="pflicht">*</span></label>
+      <input type="text" id="modell" name="modell" placeholder="z. B. Golf 7 GTI" required />
+
+      <label for="baujahr">Baujahr<span class="pflicht">*</span></label>
+      <input type="text" id="baujahr" name="baujahr" placeholder="z. B. 2018" required />
+
+      <label for="kilometer">Kilometerstand<span class="pflicht">*</span></label>
+      <input type="number" id="kilometer" name="kilometerstand" placeholder="z. B. 58000" required />
+
+      <label>Kraftstoffart<span class="pflicht">*</span></label>
+      <div class="grid">
+        <label>Benzin<input type="checkbox" name="kraftstoff" value="Benzin"></label>
+        <label>Diesel<input type="checkbox" name="kraftstoff" value="Diesel"></label>
+        <label>Elektro<input type="checkbox" name="kraftstoff" value="Elektro"></label>
+        <label>Hybrid (Diesel/Elektro)<input type="checkbox" name="kraftstoff" value="Hybrid-Diesel"></label>
+        <label>Hybrid (Benzin/Elektro)<input type="checkbox" name="kraftstoff" value="Hybrid-Benzin"></label>
+        <label>Wasserstoff<input type="checkbox" name="kraftstoff" value="Wasserstoff"></label>
+        <label>Erdgas (CNG)<input type="checkbox" name="kraftstoff" value="Erdgas"></label>
+        <label>Autogas (LPG)<input type="checkbox" name="kraftstoff" value="Autogas"></label>
+        <label>Plug-in-Hybrid<input type="checkbox" name="kraftstoff" value="Plug-in-Hybrid"></label>
+        <label>Ethanol (E85)<input type="checkbox" name="kraftstoff" value="Ethanol"></label>
+        <label>Andere<input type="checkbox" name="kraftstoff" value="Andere"></label>
+      </div>
+
+      <label for="Fin/VIN">FIN/VIN (optional)</label>
+      <input type="text" id="fin" name="fin" placeholder="Fahrzeug-Identifizierungsnummer" />
+
+      <label>Fahrzeugtyp<span class="pflicht">*</span></label>
+      <div class="grid">
+        <label>SUV<input type="checkbox" name="typ" value="SUV"></label>
+        <label>Kombi<input type="checkbox" name="typ" value="Kombi"></label>
+        <label>Limousine<input type="checkbox" name="typ" value="Limousine"></label>
+        <label>Cabrio<input type="checkbox" name="typ" value="Cabrio"></label>
+        <label>Kleinwagen<input type="checkbox" name="typ" value="Kleinwagen"></label>
+        <label>Sportwagen / Coupé<input type="checkbox" name="typ" value="Sportwagen"></label>
+        <label>Van / Minibus<input type="checkbox" name="typ" value="Van"></label>
+        <label>Andere<input type="checkbox" name="typ" value="Andere"></label>
+      </div>
+
+      <label for="zustand-select">Fahrzeugzustand<span class="pflicht">*</span></label>
+      <select id="zustand-select" name="zustand" required>
+        <option value="">Bitte wählen</option>
+        <option value="Hervorragend">Hervorragend</option>
+        <option value="Gebrauchsspuren">Gebrauchsspuren</option>
+        <option value="Schäden">Fahrzeug mit eindeutigen Schäden</option>
+      </select>
+
+      <label for="zustand">Details zum Zustand<span class="pflicht">*</span></label>
+      <textarea id="zustand" name="zustand_text" rows="3" placeholder="z. B. kleine Kratzer an der Tür, neuer Auspuff eingebaut" required></textarea>
+
+      <label for="unfall">Fahrzeug hatte einen Unfall?<span class="pflicht">*</span></label>
+      <select id="unfall" name="unfall" required>
+        <option value="">Bitte wählen</option>
+        <option value="Ja">Ja</option>
+        <option value="Nein">Nein</option>
+      </select>
+
+      <label for="nachricht">Zusätzliche Nachricht<span class="pflicht">*</span></label>
+      <textarea id="nachricht" name="nachricht" rows="4" placeholder="z. B. letzter TÜV, neue Reifen, zusätzliche Ausstattung" required></textarea>
+
+      <label for="bilder">Fahrzeugbilder (mehrere möglich)<span class="pflicht">*</span></label>
+      <input type="file" id="bilder" name="bilder[]" accept="image/*" multiple required />
+      <div id="filePreview" class="file-preview"></div>
+
+      <label for="Wunschpreis">Wunschpreis (optional)</label>
+      <input type="number" id="Wunschpreis" name="Wunschpreis" placeholder="z. B. 5800€" required />
+
+
+      <label>
+        <input type="checkbox" id="zustimmung" required />
+        Ich habe die <a href="#">Datenschutzerklärung</a> und <a href="#">AGB</a> gelesen und akzeptiert. <span class="pflicht">*</span>
+      </label>
+
+      <button type="submit">Jetzt Rückkaufanfrage senden</button>
+      <div id="status"></div>
+    </form>
+  </div>
+
+  <footer>
+    &copy; 2025 Carback2Cash – Fahrzeugverkauf mit Vertrauen
+  </footer>
+
+  <script>
+  const cloudName = "carback2cash"; // ← HIER deinen Cloudinary-Namen eintragen
+  const uploadPreset = "carback2cash"; // ← HIER deinen unsigned Upload-Preset eintragen
+
+  const bilderInput = document.getElementById("bilder");
+  const filePreview = document.getElementById("filePreview");
+  const form = document.getElementById("carForm");
+  const statusBox = document.getElementById("status");
+
+  // 📁 Hochgeladene URLs speichern
+  let uploadedImageUrls = [];
+
+  bilderInput.addEventListener("change", async function () {
+    uploadedImageUrls = [];
+    filePreview.innerHTML = "Bilder werden hochgeladen...";
+
+    const files = Array.from(bilderInput.files);
+    for (const file of files) {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("upload_preset", uploadPreset);
+
+      const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/upload`, {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (data.secure_url) {
+        uploadedImageUrls.push(data.secure_url);
+      }
+    }
+
+    // ✅ Vorschau anzeigen
+    filePreview.innerHTML = uploadedImageUrls.map(url => `📎 <a href="${url}" target="_blank">${url}</a>`).join("<br>");
+  });
+
+  // 📨 Formular absenden
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    // Händler-ID automatisch eintragen
+    const urlParams = new URLSearchParams(window.location.search);
+    const haendlerId = urlParams.get("händler_id");
+    if (haendlerId) {
+      document.getElementById("haendler_id").value = haendlerId;
+    }
+
+    const formData = new FormData(form);
+
+    // 📎 Cloudinary-Bild-URLs als JSON-String anhängen
+    formData.append("fotos", JSON.stringify(uploadedImageUrls));
+
+    statusBox.innerText = "Sende Anfrage...";
+
+    try {
+      const response = await fetch("https://devak.app.n8n.cloud/webhook/retoure-anfrage", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        statusBox.innerText = "Anfrage erfolgreich gesendet!";
+        form.reset();
+        filePreview.innerHTML = "";
+        uploadedImageUrls = [];
+      } else {
+        statusBox.innerText = "Fehler beim Senden. Bitte erneut versuchen.";
+      }
+    } catch (err) {
+      statusBox.innerText = "Netzwerkfehler. Bitte Verbindung prüfen.";
+    }
+  });
+</script>
+
+</body>
+</html>
